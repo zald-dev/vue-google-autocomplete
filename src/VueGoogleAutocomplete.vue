@@ -17,11 +17,13 @@
 
 <script>
     const ADDRESS_COMPONENTS = {
-        subpremise : 'short_name',
+        subpremise : 'long_name',
         street_number: 'short_name',
         route: 'long_name',
         locality: 'long_name',
-        administrative_area_level_1: 'short_name',
+	vicinity: 'long_name',
+	formatted_address: 'long_name',
+        administrative_area_level_1: 'long_name',
         administrative_area_level_2: 'long_name',
         country: 'long_name',
         postal_code: 'short_name'
