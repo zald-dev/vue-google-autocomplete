@@ -21,8 +21,8 @@
         street_number: 'short_name',
         route: 'long_name',
         locality: 'long_name',
-	vicinity: 'long_name',
-	formatted_address: 'long_name',
+        vicinity: 'long_name',
+        formatted_address: 'long_name',
         administrative_area_level_1: 'long_name',
         administrative_area_level_2: 'long_name',
         country: 'long_name',
@@ -31,7 +31,7 @@
 
     const CITIES_TYPE = ['locality', 'administrative_area_level_3'];
     const REGIONS_TYPE = ['locality', 'sublocality', 'postal_code', 'country',
-        'administrative_area_level_1', 'administrative_area_level_2'];
+        'administrative_area_level_1', 'administrative_area_level_2', 'formatted_address'];
 
     /*
       By default, we're only including basic place data because requesting these 
@@ -42,7 +42,7 @@
     const BASIC_DATA_FIELDS = ['address_components', 'adr_address', 'alt_id', 
         'formatted_address', 'geometry', 'icon', 'id', 'name', 
         'business_status', 'photo', 'place_id', 'scope', 'type', 'url', 
-        'utc_offset_minutes', 'vicinity'];
+        'utc_offset_minutes', 'vicinity', 'formatted_address'];
 
     export default {
         name: 'VueGoogleAutocomplete',
@@ -344,6 +344,8 @@
                     }
                 }
 
+                returnData['vicinity'] = place.vicinity;
+                returnData['formatted_address'] = place.formatted_address;
                 returnData['latitude'] = place.geometry.location.lat();
                 returnData['longitude'] = place.geometry.location.lng();
                 return returnData
